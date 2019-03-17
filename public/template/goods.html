@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/goods.css"/>
+		<link rel="stylesheet" type="text/css" href="css/public.css"/>
+		<style type="text/css">
+		/*	p{margin:0;padding: 0;}*/
+		
+			/*img{display: block;}*/
+			
+			.list{width: 1000px;border: solid 1px black;margin: 50px auto;overflow: hidden;}
+			.list .box{width: 250px;float: left;border: solid 1px black;box-sizing: border-box;}
+			.list .box p{font-size: 14px;line-height: 20px;height: 40px;overflow: hidden;}
+			.list span{display:block;text-align: center;line-height:24px;}
+            .list em{display: block;width:100px;line-height:26px;margin: 10px auto;font-style: normal;background: greenyellow;border-radius: 6px;text-align: center}
+		</style>
+	</head>
+	<body>
+		<header>
+			<ul class="margin">
+				<li class="badge">
+				<a href="car.html" class="top"><i>
+					<img src="image/shop.png" class="shop"/>
+				</i>购物车</a>
+				<div class="yincang">
+					<p>你的购物车空空如也</p>
+				</div>
+				</li>
+			
+				<li><a href="#" class="top">客服热线：400 - 7796 - 400</a></li>
+				<li class="a1">|</li>
+				<li><a href="#" class="top">帮助中心</a></li>
+				<li class="a1">|</li>
+				<li><a href="#" class="b2">我的PBA▼</a>
+					<div class="xianshi">
+						<p><a href="#">小心行事</a></p>
+						<p><a href="#">小心行事</a></p>	
+						<p><a href="#">小心行事</a></p>
+						<p><a href="#">小心行事</a></p>
+					</div>
+				</li>
+				<li class="a1">|</li>
+				<li><a href="denglu.html" class="top">登录</a></li>
+				<li class="a1">|</li>
+				<li><a href="zhuce.html" class="top">注册</a></li>
+			</ul>
+		</header>
+		
+		<nav>
+			<div class="margin clear">
+				<div class="nav-left">
+					<a href="#" class="logo"><img src="image/logo.png"/></a>
+				</div>
+				<div class="nav-right">
+					<ul>
+						<li><a href="#" class="nav-t">所有商品</a></li>
+						<li><a href="#" class="nav-t">养肤护肤</a></li>
+						<li><a href="#" class="nav-t">彩妆香水</a></li>
+						<li><a href="#" class="nav-t">工具洗护</a></li>
+						<li><a href="#" class="nav-t">美容仪器</a></li>
+						<li><a href="#" class="nav-t">美容食品</a></li>
+						<li><a href="#" class="nav-t">新品上市</a></li>
+						<li><a href="#" class="nav-t">顾问查询</a></li>
+						
+					</ul>
+				</div>
+				<div class="nav-form">
+					<table class="sreach">
+						<input type="search" class="sea" placeholder="搜索你需要的商品" />
+						<input type="submit" class="sub" value=""/>
+					</table>
+				</div>
+			</div>	
+		</nav>
+		
+       
+		<div class="list" id="list" goodsid="">
+		</div>
+	</body>
+    <script src="js/data.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/cookie.js"></script>
+	<script type="text/javascript">
+		var olist = document.getElementById("list")
+		
+		var str = "";
+		for(var i=0;i<json.length;i++){
+            str += '<div class="box" goodsId="'+ json[i].goodsId +'">'+
+                        '<img src="'+ json[i].src +'"/>'+
+                        '<p>'+ json[i].name +'</p>'+
+                        '<span>'+ json[i].price +'</span>'+
+                        '<em class="addCar">添加购物车</em>'+
+                    '</div>';
+		}
+		olist.innerHTML = str;
+        
+    
+        olist.addEventListener("click",function(eve){
+            var e = eve || window.event;
+            var target = e.target || e.srcElement;
+            if(target.className == "addCar"){
+               
+                var id = target.parentNode.getAttribute("goodsid");
+                setCookie(id,id)
+            }
+        })
+        
+
+	</script>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/public.css"/>
+		<link rel="stylesheet" type="text/css" href="css/denglu.css"/>
+		<script src="js/index.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+	<header>
+		<div class="m-body clear">
+		<a href="index.html">
+			<img src="http://pbaimage.pba.cn/2014/new_pba/images/login/logo.png"/>
+		</a>
+	
+		</div>
+		<div class="form">
+			<input type="text"  value="" class="mobile" placeholder="手机号码" /><span id="msg">
+				
+			</span>
+			<input type="password"  id="" value="" class="password" placeholder="密码"/><span id="msg">
+				
+			</span>
+			<input type="submit" id=""  value="立即登录" class="login"/>
+		</div>
+	<input type="checkbox" name="" id="" value=""  class="checkbox"/>
+	<span class="forgetPass">记住密码</span>
+
+		<a href="#" class="right">忘记密码</a>
+		<b class="right">|</b>
+		<a href="zhuce.html" class="right">注册账号</a>
+
+	</header>
+	
+	</body>
+	<script src="ajax/ajax.3.0.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		
+function Register(options){
+        this.btn = options.btn
+        this.user = options.user
+        this.pass = options.pass
+        this.url = options.url,
+        
+
+        this.type = Math.random();
+
+        this.init()
+    }
+    Register.prototype.init = function(){
+        var that = this;
+        this.btn.onclick = function(){
+            that.load()
+        }
+    }
+    Register.prototype.load = function(){
+        var that = this;
+        ajaxPost(this.url,{
+            user:this.user.value,
+            pass:this.pass.value
+        }).then(function(res){
+            switch(res){
+                case "0":
+                    that.user.nextSibling.innerHTML = "用户名密码不符";
+                    break;
+                case "1":
+                    alert( "登录失效，请重新登录");
+                    break;
+                default:
+                    alert("登录成功");
+                    that.res  =JSON.parse(res);
+                    setTimeout(() => {
+                        location.href = "index.html";
+                    }, 3000);
+                    console.log(that.res)
+            }
+        },function(code){
+            console.log("前端的ajax请求失败，有可能是网络原因或接口错误，或服务器问题，反正不一定是登录失败")
+        })
+    }
+
+
+
+    new Register({
+        btn:document.querySelector(".login"),
+        user:document.querySelector(".mobile"),
+        pass:document.querySelector(".password"),
+        url:"http://www.liyangyf.com/ctrl/login.php"
+    })
+	</script>
+</html>

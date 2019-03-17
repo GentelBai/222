@@ -1,0 +1,9 @@
+header{margin:100px auto;width: 320px;}
+header .m-body{text-align: center;margin: 97px 0 13px 0;}
+header .form {width:320px;}
+header .form input{width:298px;border:1px solid #e5e5e5;height:30px;padding:0 10px;font:inherit;color:#969696;margin:10px 0;font-size: 14px;font-weight:500;outline: none;}
+header .form .login{background-color:rgb(255,73,140);color:white;cursor: pointer;height:40px;width:100%;}
+header .form .checkbox{border:none;border:1px solid #E5E5E5;height:20px;}
+header .form .forgetPass{padding-left: 12px;font-size: 14px;color:#000;}
+header .right{float: right;padding:0 2px;color:#969696}
+/*header {float: left;}*/

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/public.css"/>
+		<link rel="stylesheet" type="text/css" href="css/zhuce.css"/>
+		<script src="js/index.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+		.form span{font:14px/20px "";display: inline-block;float: right;margin-top: 16px;}
+		</style>
+	</head>
+	<body>
+	<header>
+		<div class="m-body clear">
+		<a href="index.html">
+			<img src="http://pbaimage.pba.cn/2014/new_pba/images/login/logo.png"/>
+		</a>
+		<h1>注册个人账号<h1>
+		</div>
+		<div class="form">
+			<input type="text"  value="" class="mobile" placeholder="请输入手机号码" /><span id="msg"></span>
+			<input type="password"  id="password1" value="" class="password1" placeholder="设置密码"/><span id="msg"></span>
+			<!--<input type="password"  id="password2" value="" class="password2" placeholder="确认密码"/><span></span>-->
+			<input type="submit" id=""  value="注册" class="registered"/>
+		</div>
+		<p class="policy">点击“立即注册”，即表示您同意并且愿意遵守PBA</p>
+			<a href="#">用户协议</a>
+	</header>
+	
+	</body>
+	<script src="ajax/ajax.3.0.js" type="text/javascript" charset="utf-8"></script>
+	<script>
+//var omob = document.querySelector(".mobile");
+//var opass = document.querySelector(".password1");
+//var opass2 = document.querySelector(".password2");
+//var obtn = document.querySelector(".registered");
+//
+//  var uonOff = ponOff = p2onOff = eonOff = false;
+//
+//  omob.onblur = function(){
+//      var reg = /^[\u2E80-\u9FFF\w\-]{4,20}$/;
+//      if(reg.test(this.value)){
+//          this.nextElementSibling.innerHTML = "符合规则";
+//          uonOff = true;
+//      }else{
+//          this.nextElementSibling.innerHTML = "不符合，规则。。。。。。"
+//          console.log(this)
+//          uonOff = false
+//      }
+//  }
+//
+//  opass.onblur = function(){
+//      var a=b=c=0;
+//     
+//      var numReg = /\d+/;
+//      if(numReg.test(this.value)) a = 1;
+//
+//      
+//      var azReg = /[a-zA-Z]+/;
+//      if(azReg.test(this.value)) b = 1;
+//
+//
+//      var tsReg = /[\~\!\@\#\$\%\^\&\*\(\)\_\+\`\-\=\{\}\[\]\\|\;\'\:\"\,\.\/\<\>\?]+/;
+//      if(tsReg.test(this.value)) c = 1;
+//
+//
+//      ponOff = true;
+//    
+//      switch(a+b+c){
+//          case 1:this.nextElementSibling.innerHTML = "简单";break;
+//          case 2:this.nextElementSibling.innerHTML = "一般";break;
+//          case 3:this.nextElementSibling.innerHTML = "最难";break;
+//          default:
+//              this.nextElementSibling.innerHTML = "至少输入数字字母或特殊字符";
+//              ponOff = false;
+//      }
+//      
+// 
+//      if(opass2.value === this.value){
+//          opass2.nextElementSibling.innerHTML = "ok"
+//          p2onOff = true
+//      }else{
+//          opass2.nextElementSibling.innerHTML = "两次密码不一致"
+//          p2onOff = false
+//      }
+//  }
+//
+//  opass2.onblur = function(){
+//      if(opass.value === this.value){
+//          this.nextElementSibling.innerHTML = "ok"
+//          p2onOff = true
+//      }else{
+//          this.nextElementSibling.innerHTML = "两次密码不一致"
+//          p2onOff = false
+//      }
+//  }
+//
+//
+//  obtn.onclick = function(){
+//      // 判断所有单位的开关必须都为true才是成功
+//      if(uonOff && ponOff && p2onOff){
+//          alert("成功")
+//      }else{
+//          alert("失败")
+//      }
+//  }
+
+
+ function Register(options){
+        this.btn = options.btn
+        this.user = options.user
+        this.pass = options.pass
+        this.msg = options.msg
+        this.url = options.url
+
+        this.init()
+    }
+    Register.prototype.init = function(){
+        var that = this;
+        this.btn.onclick = function(){
+            that.load()
+            console.log(1)
+        }
+    }
+    Register.prototype.load = function(){
+        var that = this;
+        console.log(this.user.value);
+        ajaxPost(this.url,{
+            tel:this.user.value,
+            pass:this.pass.value
+        }).then(function(res){
+            switch(res){
+                case "0":
+                    that.msg.innerHTML = "重名，换一个";break;
+                case "1":
+                    that.msg.innerHTML = "注册成功，3秒之后调转到登录";
+                    setTimeout(() => {
+                        location.href = "denglu.html";
+                    }, 3000);
+                    break;
+                case "2":
+                    that.msg.innerHTML = "请输入完整信息";break;
+            }
+        },function(code){
+            console.log("前端的ajax请求失败，有可能是网络原因或接口错误，或服务器问题，反正不一定是注册失败")
+        })
+    }
+
+
+
+    new Register({
+        btn:document.querySelector(".registered"),
+        user:document.querySelector(".mobile"),
+        pass:document.getElementById("password1"),
+        msg:document.getElementById("msg"),
+        url:"http://www.liyangyf.com/ctrl/register.php"
+    })
+ 
+    </script>
+</html>

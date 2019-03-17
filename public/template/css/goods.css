@@ -1,0 +1,44 @@
+.margin{width:1226px;margin:0 auto;}
+header{width: 100%;
+	background-color:#363636 ;
+	position: fixed;
+	top:0;
+	left:0;
+	z-index: 10;
+	height: 32px;
+}
+header ul{
+	height: 32px;
+	overflow: visible;
+	font-size: 12px;
+	position: relative;
+}
+header ul li{float:right;
+			padding:0 10px;
+			color: #fff;
+			font:12px/32px "";
+}
+header ul li .b2{color: #fff;}
+header ul li .top{color: #fff;}
+header ul .xianshi{display: none;position: absolute;top: 32px;background-color:#404040;right:356px;text-align: center;width:100px;height: 130px;}
+header ul li .xianshi p a{color:white;}
+header ul li:hover .xianshi{display:block;}
+header ul li .xianshi p a{width: 14px;height: 12px;}
+/*header ul li:hover .xianshi p a{border:2px solid #e5e5e5;}*/
+header ul .a1{color:rgb(75,75,75);}
+header ul li .shop{margin:-8px 2px 0 2px;}
+header ul .yincang{display:none;position: absolute;top:32px;right:10px;width:340px;height:40px;background-color:#FAFAFA;text-align: center;}
+header ul .yincang p{color:rgb(140,140,140);}
+header ul .badge:hover .yincang{display:block;}
+
+nav{padding-top:82px;}
+nav .nav-left{float: left;}
+nav .nav-left .logo img{width: 194px;height: 71px;display: block;}
+nav .nav-right{float:left;margin-left: 16px;padding-left:28px;padding-top:18px;}
+nav .nav-right ul{width: 708px;border-bottom:1px solid #E5E5E5;height: 26px;}
+nav .nav-right ul li{float: left;width:64px;padding-right: 22px;font:15px/26px "";}
+nav .nav-right ul li .nav-t{color: rgb(150,150,150);}
+nav .nav-right ul li .nav-t:hover{color:red;}
+nav .nav-form{width:268px;float:left;color:#000000;padding-left: 4px;padding-top:2px;}
+nav .nav-form .sea{width: 190px;float: left;height:48px;padding:0 6px;border:1px solid #e5e5e5;font-size: 16px;}
+nav .nav-form .sub{width: 48px;height:48px;border: none;background:url("//pbaimage.pba.cn/2014/new_pba/images/homepage/index_v0309/search_btn.png")no-repeat center;border:1px solid #e5e5e5;float: left;cursor: pointer;}

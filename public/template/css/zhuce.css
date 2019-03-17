@@ -1,0 +1,11 @@
+header{margin:100px auto;width: 320px;}
+header .m-body{text-align: center;margin: 97px 0 13px 0;}
+header .m-body a{}
+header .m-body h1{padding-top:20px;font-weight:700;}
+
+
+header .form {width:600px;}
+header .form input{width:298px;border:1px solid #e5e5e5;height:30px;padding:0 10px;font:inherit;color:#969696;margin:10px 0;font-size: 14px;font-weight:500;outline: none;}
+header .form .registered{background-color:rgb(255,73,140);color:white;cursor: pointer;height:40px;width:320px;}
+header p{color:#a9a9a9;font:12px/20px "";}
+header a{color:#000000;font:12px/20px "";}

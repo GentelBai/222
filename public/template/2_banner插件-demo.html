@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <!--<style>
+        .box{width: 1130px;height: 300px;margin: 0 auto 50px;position: relative;overflow: hidden}
+        .imgbox{width: 1130px;height: 300px;}
+        .imgbox img{width: 1130px;height: 300px;position: absolute;left: 1130px;}
+        .imgbox img:first-child{left: 0;}
+
+        .btns input{width:50px;height:50px;border: none;background: rgba(200,200,200,0.6);position: absolute;top:125px;}
+        .btns input:nth-child(1){left: 0;}
+        .btns input:nth-child(2){right: 0;}
+
+        .list{width:1130px;line-height: 30px;position: absolute;bottom: 0;display: flex;background: rgba(255,255,255,0.7)}
+        .list span{flex:1;text-align: center;}
+        
+    </style>
+</head>
+<body>
+    <div class="cont1 box">
+        <div class="imgbox">
+      <a href="#"><img src="http://pbaimage.pba.cn/2014/new_pba/images/homepage/index_v0309/banner_03.jpg"/></a> 
+	           <img src="http://pbaimage.pba.cn/2014/new_pba/images/homepage/index_v0309/banner_02.jpg"/>
+            
+        </div>
+        <div class="btns">
+            <input type="button" id="left" value="<<<">
+            <input type="button" id="right" value=">>>">
+        </div>
+        <div class="list">
+            <span>1</span>
+            <span>2</span>
+           
+        </div>
+    </div>
+    <div class="cont2 box">
+        <div class="imgbox">
+	           <img src="http://pbaimage.pba.cn/2014/new_pba/images/homepage/index_v0309/banner_03.jpg"/>
+	           <img src="http://pbaimage.pba.cn/2014/new_pba/images/homepage/index_v0309/banner_02.jpg"/>
+            
+        </div>
+        <div class="btns">
+            <input type="button" id="left" value="<<<">
+            <input type="button" id="right" value=">>>">
+        </div>
+       <div class="list">
+            <span>1</span>
+            <span>2</span>
+            <span>3</span>
+            <span>4</span>
+       </div>
+    </div>
+</body>
+<script src="../jquery.js" type="text/javascript" charset="utf-8"></script>
+<script src="jquery.banner.1.1.0.js"></script>
+<script>
+    $(".cont1").banner({
+        items:$(".cont1").children(".imgbox").children("img"),
+        left:$(".cont1").children(".btns").children("#left"),
+        right:$(".cont1").children(".btns").children("#right"),
+        list:$(".cont1").children(".list").children("span"),
+        moveTime:200,
+        autoPlay:true,
+        delayTime:1000,
+    });
+
+    $(".cont2").banner({
+        items:$(".cont2").children(".imgbox").children("img"),
+        left:$(".cont2").children(".btns").children("#left"),
+        right:$(".cont2").children(".btns").children("#right"),
+        moveTime:300,
+        autoPlay:true,
+        delayTime:3000,
+    });-->
+    function fn(b){ console.log(this) this.b = b;
+    	 console.log(this.a); } 
+    	 var obj = {a:4,fn:fn}; fn();  
+    	  obj.fn();
+    	   fn.call(obj);  
+    	    fn.apply(null);
+</script>
+</html>
